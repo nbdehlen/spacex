@@ -12,6 +12,9 @@ export const FETCH_PREVIOUS_LAUNCHES = gql`
       links {
         article_link
         video_link
+        mission_patch
+        mission_patch_small
+        flickr_images
       }
       rocket {
         rocket_name

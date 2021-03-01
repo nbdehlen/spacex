@@ -1,10 +1,12 @@
 import React from "react"
 import { Text, View } from "react-native"
 
-const PastDetailsScreen = () => {
+const PastDetailsScreen = ({ route }) => {
+  // const PastDetailsScreen = ({ route:{params: {}}}) => {
+  console.log(route)
   return (
     <View>
-      <Text>past details</Text>
+      <Text>sfgdsdffds</Text>
     </View>
   )
 }

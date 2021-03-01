@@ -4,6 +4,7 @@ import { Text, View } from "react-native"
 import { FlatList } from "react-native-gesture-handler"
 import LaunchesItem from "../components/LaunchesItem"
 import { FETCH_PREVIOUS_LAUNCHES } from "../queries"
+import { Container } from "../theme/base"
 
 const PastOverviewScreen = () => {
   const { data, error, loading } = useQuery(FETCH_PREVIOUS_LAUNCHES)
@@ -14,8 +15,7 @@ const PastOverviewScreen = () => {
   if (error) return <Text>{`Error! ${error.message}`}</Text>
 
   return (
-    <View>
-      <Text>past overview screen</Text>
+    <Container>
       <FlatList
         data={data.launchesPast}
         renderItem={({ item }) => {
@@ -26,7 +26,7 @@ const PastOverviewScreen = () => {
         }}
         keyExtractor={(item) => item.id.toString()}
       />
-    </View>
+    </Container>
   )
 }
 
