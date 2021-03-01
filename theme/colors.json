@@ -1,0 +1,11 @@
+{
+  "primary": {
+    "color": "#000000",
+    "onColor": "#fafafa"
+  },
+  "dark": "#6f6d85",
+  "light": "#fafafa",
+  "error": "#fafafa",
+  "fail": "#ec265e",
+  "success": "#2afcb3"
+}
