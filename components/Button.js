@@ -8,10 +8,11 @@ export const Button = ({ title, onPress }) => {
       <View
         style={{
           borderColor: colors.primary.onColor,
+          // backgroundColor: "#007bff",
           borderWidth: 1,
-          borderRadius: 8,
-          paddingHorizontal: 12,
-          paddingVertical: 8,
+          borderRadius: 12,
+          paddingHorizontal: 16,
+          paddingVertical: 10,
         }}
       >
         <BaseText>{title}</BaseText>

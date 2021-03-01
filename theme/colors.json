@@ -4,6 +4,7 @@
     "onColor": "#fafafa"
   },
   "dark": "#000000",
+  "dark_2": "#121617",
   "light": "#fafafa",
   "error": "#fafafa",
   "fail": "#ec265e",

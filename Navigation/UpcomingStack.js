@@ -2,12 +2,13 @@ import React from "react"
 import UpcomingDetailsScreen from "../screens/UpcomingDetailsScreen"
 import UpcomingOverviewScreen from "../screens/UpcomingOverviewScreen"
 import { createStackNavigator } from "@react-navigation/stack"
+import stackConfig from "./stackConfig"
 
 const Stack = createStackNavigator()
 
 const UpcomingStack = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={stackConfig}>
       <Stack.Screen
         name="UpcomingOverview"
         component={UpcomingOverviewScreen}
