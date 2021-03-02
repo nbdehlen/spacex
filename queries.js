@@ -17,11 +17,11 @@ export const FETCH_PREVIOUS_LAUNCHES = gql`
 export const FETCH_DETAILS = gql`
   query getDetails($id: ID!) {
     launch(id: $id) {
-      id
       details
       links {
         flickr_images
         wikipedia
+        video_link
       }
       rocket {
         rocket_name
@@ -29,7 +29,6 @@ export const FETCH_DETAILS = gql`
           recovered
           recovery_attempt
           reused
-          ship
         }
       }
     }

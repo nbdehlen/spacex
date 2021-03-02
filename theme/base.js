@@ -1,6 +1,10 @@
 import React from "react"
+import { Dimensions } from "react-native"
 import styled from "styled-components/native"
 import ccolors from "./colors.json"
+
+export const deviceWidth = Dimensions.get("window").width
+export const deviceHeight = Dimensions.get("window").height
 
 export const colors = ccolors
 
@@ -35,7 +39,7 @@ export const BaseText = styled.Text`
   color: ${colors.primary.onColor};
 `
 export const Container = styled.View`
-  /* margin: 24px 32px 24px 32px; */
+  /* margin: 32px 32px 32px 32px; */
   background-color: ${colors.dark};
 `
 export const ImageWrapper = styled.View`

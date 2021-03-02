@@ -1,7 +1,7 @@
 import React from "react"
 import { Text, View } from "react-native"
 
-const UpcomingDetailsScreen = () => {
+const UpcomingDetailsScreen = (props) => {
   return (
     <View>
       <Text>Upcoming details screen</Text>

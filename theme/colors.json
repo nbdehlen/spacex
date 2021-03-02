@@ -3,10 +3,11 @@
     "color": "#1c1c1c",
     "onColor": "#fafafa"
   },
+  "accent_1": "#007bff",
   "dark": "#000000",
   "dark_2": "#121617",
   "light": "#fafafa",
   "error": "red",
-  "fail": "#ec265e",
+  "fail": "#c43232",
   "success": "#2afcb3"
 }

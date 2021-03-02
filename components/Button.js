@@ -1,5 +1,5 @@
 import React from "react"
-import { Text, TouchableOpacity, View } from "react-native"
+import { TouchableOpacity, View } from "react-native"
 import { BaseText, colors } from "../theme/base"
 
 export const Button = ({ title, onPress }) => {
@@ -8,9 +8,7 @@ export const Button = ({ title, onPress }) => {
       <View
         style={{
           borderColor: colors.primary.onColor,
-          backgroundColor: "#007bff",
-          // borderBottomWidth: 1,
-          // borderColor: "#007bff",
+          backgroundColor: colors.accent_1,
           borderRadius: 12,
           paddingHorizontal: 16,
           paddingVertical: 10,
