@@ -1,5 +1,5 @@
 import React from "react"
-import styled from "styled-components"
+import styled from "styled-components/native"
 import ccolors from "./colors.json"
 
 export const colors = ccolors
@@ -13,7 +13,7 @@ export const Card = styled.View`
   background-color: ${colors.primary.color};
   border-radius: 16px;
   padding: 20px;
-  margin: 24px 32px 24px 32px;
+  margin: 32px 32px 32px 32px;
 `
 export const Fail = styled.Text`
   font-weight: bold;
