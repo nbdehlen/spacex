@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { useLazyQuery, useQuery } from "react-apollo"
 import { ActivityIndicator, ImageBackground, Text, View } from "react-native"
 import { FlatList } from "react-native-gesture-handler"
 import LaunchesItem from "../components/LaunchesItem"
+import ActivitySpinner from "../components/ActivitySpinner"
+import ErrorMessage from "../components/ErrorMessage"
 import { FETCH_PREVIOUS_LAUNCHES } from "../queries"
 import { Container } from "../theme/base"
-import { dbh } from "../firebase/firebaseConnection"
+import firebaseConnection from "../firebase/firebaseConnection"
 // import { FlatList } from "@stream-io/flat-list-mvcp"
 
 const PastOverviewScreen = () => {
@@ -23,7 +25,6 @@ const PastOverviewScreen = () => {
   const [displayError, setDisplayError] = useState()
   const [sorted, setSorted] = useState([])
   const [refreshing, setRefreshing] = useState(false)
-  const flatlist = React.useRef()
   // const fetchPreviousLaunches = (offset) => {
   //   const { loading, error, data } = useQuery(FETCH_PREVIOUS_LAUNCHES, {
   //     variables: { offset },
@@ -54,7 +55,7 @@ const PastOverviewScreen = () => {
    */
 
   useEffect(() => {
-    dbh
+    firebaseConnection
       .collection("launches")
       .doc("likes")
       .onSnapshot((querySnapshot) => {
@@ -70,19 +71,15 @@ const PastOverviewScreen = () => {
     refetch(10)
     // setRefreshing(false)
   }
-
   //TODO: error state and for firestore
   if (loading) {
-    return (
-      <View style={{ alignItems: "center", justifyContent: "center" }}>
-        <ActivityIndicator />
-      </View>
-    )
+    return <ActivitySpinner />
   }
   //TODO: red text errro msg
   if (error) {
-    return <Text>{`Error! ${error.message}`}</Text>
+    return <ErrorMessage message={error.message} />
   }
+
   return (
     <Container>
       <ImageBackground
@@ -92,7 +89,6 @@ const PastOverviewScreen = () => {
       >
         {likes && sorted && (
           <FlatList
-            ref={flatlist}
             data={sorted}
             renderItem={({ item }) => {
               const like = likes[item.id] ? likes[item.id] : 0

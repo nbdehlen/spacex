@@ -1,8 +1,8 @@
 import { useNavigation } from "@react-navigation/native"
 import { format } from "date-fns"
-import React from "react"
+import React, { useRef } from "react"
 import { Image, Text, View } from "react-native"
-import { dbh } from "../firebase/firebaseConnection"
+import firebaseConnection from "../firebase/firebaseConnection"
 import {
   BaseText,
   Card,
@@ -14,21 +14,10 @@ import {
   Success,
 } from "../theme/base"
 import { Button } from "./Button"
-
-const LaunchesItem = ({
-  // props: {
-  //   mission_name,
-  //   launch_date_local,
-  //   launch_success,
-  //   links: { mission_patch_small, mission_patch },
-  // },
-  props,
-}) => {
+import * as firebase from "firebase"
+const LaunchesItem = ({ props }) => {
   const navigation = useNavigation()
-
-  const goToDetails = () => {
-    navigation.navigate("PastDetails", { ...props })
-  }
+  const increment = firebase.firestore.FieldValue.increment(1)
 
   const {
     like,
@@ -36,19 +25,22 @@ const LaunchesItem = ({
     mission_name,
     launch_date_local,
     launch_success,
-    links: { mission_patch_small, mission_patch },
+    links: { mission_patch_small },
   } = props
 
+  const goToDetails = () => {
+    navigation.navigate("PastDetails", { likeMission, ...props })
+  }
   const imageWithFallback = mission_patch_small
     ? { uri: mission_patch_small }
     : require("../assets/ufo.png")
 
   const likeMission = () => {
-    dbh
+    firebaseConnection
       .collection("launches")
       .doc("likes")
       .update({
-        [id]: like + 1,
+        [id]: increment,
       })
   }
 

@@ -6,7 +6,7 @@
   "dark": "#000000",
   "dark_2": "#121617",
   "light": "#fafafa",
-  "error": "#fafafa",
+  "error": "red",
   "fail": "#ec265e",
   "success": "#2afcb3"
 }

@@ -20,6 +20,11 @@ export const Fail = styled.Text`
   font-size: 18px;
   color: ${colors.fail};
 `
+export const ErrorText = styled.Text`
+  font-weight: bold;
+  font-size: 18px;
+  color: ${colors.error};
+`
 export const Success = styled.Text`
   font-weight: bold;
   font-size: 18px;

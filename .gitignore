@@ -65,3 +65,4 @@ web-build/
 
 # Keys
 firebase/firebaseConfig.js
+android/app/google-services.json

@@ -3,5 +3,6 @@ import "firebase/firestore"
 import firebaseConfig from "./firebaseConfig"
 
 firebase.initializeApp(firebaseConfig)
+const firebaseConnection = firebase.firestore()
 
-export const dbh = firebase.firestore()
+export default firebaseConnection
